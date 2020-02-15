@@ -29,21 +29,26 @@ int main()
     print_statistics(&data[0]) ;
     printf("\nThe new sorted array from large to small will be :\n");
     sort_array(&data[0]) ;
+
+    return 0 ;
 }
 
 
 
-int print_array(int * ptr )
+int print_array(unsigned int * ptr )
 {
     for(int i=0;i<SIZE;i++)
     {
        printf("%d-%d\n",i+1,*ptr);
        ptr++ ;
     }
+
+    return 0 ;
+
 }
 
 
-int find_maximum(int * ptr1)
+int find_maximum(unsigned int * ptr1)
 {
     int max = *ptr1 ;
     for(int i=1;i<SIZE;i++)
@@ -58,7 +63,7 @@ int find_maximum(int * ptr1)
 }
 
 
-int find_minimum(int * ptr2)
+int find_minimum(unsigned int * ptr2)
 {
     int min = *ptr2 ;
     for(int i=1;i<SIZE;i++)
@@ -73,7 +78,7 @@ int find_minimum(int * ptr2)
 }
 
 
-int find_mean(int * ptr3)
+int find_mean(unsigned int * ptr3)
 {
     int sum=0 ;
     for(int i=0;i<SIZE;i++)
@@ -85,7 +90,7 @@ int find_mean(int * ptr3)
 }
 
 
-int find_median(int * ptr4)
+int find_median(unsigned int * ptr4)
 {
     int median , temp=0 ;
     if(SIZE%2==0)
@@ -106,9 +111,9 @@ int find_median(int * ptr4)
 }
 
 
-int sort_array(int * ptr5)
+int sort_array(unsigned int * ptr5)
 {
-    int temp[SIZE] , hold   ;
+    unsigned int temp[SIZE] , hold   ;
     for(int i=0;i<SIZE;i++)
     {
         temp[i]=*ptr5 ;
@@ -127,13 +132,18 @@ int sort_array(int * ptr5)
         }
     }
     print_array(&temp[0]);
+
+    return 0 ;
+
 }
 
 
-int print_statistics(int * ptr6)
+int print_statistics(unsigned int * ptr6)
 {
     printf("\nMax = %d\n",find_maximum(ptr6));
     printf("Min = %d\n",find_minimum(ptr6));
     printf("Mean = %d\n",find_mean(ptr6));
     printf("Median = %d\n",find_median(ptr6));
+
+    return 0 ;
 }

@@ -15,7 +15,7 @@
 *     printed array on the screen .
 *
 ********************************************************************/
-int print_array(int * ptr) ;
+int print_array(unsigned int * ptr) ;
 
 /********************************************************************
 *
@@ -32,7 +32,7 @@ int print_array(int * ptr) ;
 *     maximum of the given array .
 *
 ********************************************************************/
-int find_maximum(int * ptr1) ;
+int find_maximum(unsigned int * ptr1) ;
 
 /********************************************************************
 *
@@ -49,7 +49,7 @@ int find_maximum(int * ptr1) ;
 *     minimum of the given array .
 *
 ********************************************************************/
-int find_minimum(int * ptr2) ;
+int find_minimum(unsigned int * ptr2) ;
 
 /********************************************************************
 *
@@ -66,7 +66,7 @@ int find_minimum(int * ptr2) ;
 *     mean of the given array .
 *
 ********************************************************************/
-int find_mean(int * ptr3) ;
+int find_mean(unsigned int * ptr3) ;
 
 /********************************************************************
 *
@@ -83,7 +83,7 @@ int find_mean(int * ptr3) ;
 *     median of the given array .
 *
 ********************************************************************/
-int find_median(int * ptr4) ;
+int find_median(unsigned int * ptr4) ;
 
 /********************************************************************
 *
@@ -100,7 +100,7 @@ int find_median(int * ptr4) ;
 *     printed array on the screen .
 *
 ********************************************************************/
-int sort_array(int * ptr5) ;
+int sort_array(unsigned int * ptr5) ;
 
 /********************************************************************
 *
@@ -118,7 +118,7 @@ int sort_array(int * ptr5) ;
 *     printed statistics of the array to the screen .
 *
 ********************************************************************/
-int print_statistics(int * ptr6) ;
+int print_statistics(unsigned int * ptr6) ;
 
 /********************************************************************
 *
