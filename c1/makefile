@@ -15,7 +15,7 @@ TARGET = demo
 
 #compilers variables
 CC = gcc
-CFLAGS = -std=c99 -Wall -g 
+CFLAGS = -std=c99 -Wall -g -Werror
 
 #object files variables
 OBJ = $(SRC:.c=.o)
