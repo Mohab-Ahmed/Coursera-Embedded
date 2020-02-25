@@ -28,20 +28,21 @@ TARGET = c1m2
 # Linker File
 LINKER_FILE= msp432p401r.lds
 
+ifeq ($(PLATFORM),HOST)
+# Compiler and Flags
+SOURCES=$(SRC1)
+CC=gcc
+CFLAGS= -Wall -O0 -Werror -std=c99 -g -DHOST -I $(INCLUDE1) 
+endif
+
 # Architecture Specific Flags
 CPU = cortex-m4
 ARCH = thumb
 SPECS = nosys.specs
 
-ifeq ($(PLATFORM),HOST)
-# Compiler and Flags
-CC=gcc
-CFLAGS= -Wall -O0 -Werror -std=c99 -g -DHOST -I $(INCLUDE1) -I $(INCLUDE2) -I $(INCLUDE3) 
-LDFLAGS= -Wl,-Map=$(TARGET).map -T $(LINKER_FILE)
-endif	
-
 ifeq ($(PLATFORM),MSP432)
 #compiler and flags
+SOURCES=$(SRC2)
 CC= arm-none-eabi-gcc
 CFLAGS= -mcpu=$(CPU) -m$(ARCH) --specs=$(SPECS) -Wall -O0 -Werror -std=c99 -g -DMSP432 -I $(INCLUDE1) -I $(INCLUDE2) -I $(INCLUDE3)
 LDFLAGS= -Wl,-Map=$(TARGET).map -T $(LINKER_FILE)
