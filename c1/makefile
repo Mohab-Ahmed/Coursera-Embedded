@@ -11,7 +11,7 @@
 include sources.mk
 
 #target variable name
-TARGET = demo
+TARGET = stats
 
 #compilers variables
 CC = gcc
