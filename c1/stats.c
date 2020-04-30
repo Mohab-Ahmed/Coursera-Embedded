@@ -26,8 +26,8 @@ int main()
                             7,  87, 250, 230,  99,   3, 100,  90};
     
     print_array(data);
-    print_statistics(data) ;
     sort_array(data);
+    print_statistics(data) ;
     printf("\nThe new sorted array from large to small will be :\n");
     print_array(data);
 
