@@ -66,6 +66,7 @@ OBJ = $(SOURCES:.c=.o)
 .PHONY: build
 build : $(SOURCES) $(INCLUDE1) $(INCLUDE2) $(INCLUDE3)
 	$(CC) $(SOURCES) $(CFLAGS) $(LDFLAGS) -o $(TARGET).out
+	size $(TARGET).out
 
 .PHONY: compile-all
 compile_all : $(OBJ)
