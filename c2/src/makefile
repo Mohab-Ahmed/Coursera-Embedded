@@ -44,7 +44,9 @@ ifeq ($(PLATFORM),MSP432)
 #compiler and flags
 SOURCES=$(SRC2)
 CC= arm-none-eabi-gcc
-CFLAGS= -mcpu=$(CPU) -m$(ARCH) --specs=$(SPECS) -Wall -O0 -Werror -std=c99 -g -DMSP432 -I $(INCLUDE1) -I $(INCLUDE2) -I $(INCLUDE3)
+CFLAGS= -mcpu=$(CPU) -m$(ARCH) --specs=$(SPECS) \
+	-Wall -O0 -Werror -std=c99 -g -DMSP432 \
+	-I $(INCLUDE1) -I $(INCLUDE2) -I $(INCLUDE3)
 LDFLAGS= -Wl,-Map=$(TARGET).map -T $(LINKER_FILE)
 endif
 
