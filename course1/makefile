@@ -1,8 +1,14 @@
 #************************************************
-#
-# this make file for coursera second assignment 
 # 
-# use : make [TARGET] [PLATFORM=<PLATFORM-NAME>]
+# @author :   Mohab Ahmed 
+#
+# @mail   :   mohamb.ahmed.2032@gmail.com
+#
+# this makefile for coursera final assignment 
+# 
+# use : make [TARGET] [PLATFORM=<PLATFORM-NAME>] /
+#					  [FUNC=<FUNCTION-NAME>] 	 /
+#					  [PRINT=<VERBOSE>] or not for debugging
 # 
 # build targets :
 # 	*.i files
@@ -23,7 +29,15 @@ include sources.mk
 
 # Platform Overrides
 PLATFORM = HOST
-TARGET = c1m2
+TARGET = c1
+
+ifeq ($(FUNC),COURSE1)
+CF= -DCOURSE1
+endif
+
+ifeq ($(PRINT), VERBOSE)
+CV= -DVERBOSE
+endif
 
 # Linker File
 LINKER_FILE= msp432p401r.lds
@@ -35,15 +49,19 @@ SPECS = nosys.specs
 
 ifeq ($(PLATFORM),HOST)
 # Compiler and Flags
+SOURCES= $(SRC1)
 CC=gcc
-CFLAGS= -Wall -O0 -Werror -std=c99 -g -DHOST -I $(INCLUDE1) -I $(INCLUDE2) -I $(INCLUDE3) 
-LDFLAGS= -Wl,-Map=$(TARGET).map -T $(LINKER_FILE)
+CFLAGS= -Wall -O0 -Werror -std=c99 -g -DHOST $(CF) $(CV) \
+	 -I $(INCLUDE1) 
 endif	
 
 ifeq ($(PLATFORM),MSP432)
 #compiler and flags
+SOURCES= $(SRC2)
 CC= arm-none-eabi-gcc
-CFLAGS= -mcpu=$(CPU) -m$(ARCH) --specs=$(SPECS) -Wall -O0 -Werror -std=c99 -g -DMSP432 -I $(INCLUDE1) -I $(INCLUDE2) -I $(INCLUDE3)
+CFLAGS= -mcpu=$(CPU) -m$(ARCH) --specs=$(SPECS) \
+		-Wall -O0 -Werror -std=c99 -g -DMSP432  $(CF) $(CV) \
+		-I $(INCLUDE1) -I $(INCLUDE2) -I $(INCLUDE3)
 LDFLAGS= -Wl,-Map=$(TARGET).map -T $(LINKER_FILE)
 endif
 

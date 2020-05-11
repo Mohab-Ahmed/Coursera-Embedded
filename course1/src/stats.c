@@ -17,7 +17,7 @@
 //#include <stdio.h>     /* removed to include the decleration in platform.h */
 #include"stats.h"
 #include"platform.h"
-
+/*
 int main()
 {
     unsigned int length = ARRAY_SIZE;
@@ -33,14 +33,14 @@ int main()
 
     return 0 ;
 }
-
+*/
 
 void print_array(unsigned char * ptr,unsigned int size)
 {
     #ifdef VERBOSE
     for(unsigned int i=0;i<size;i++)
     {
-       printf("%d-%c\n",i+1,*ptr);
+       PRINTF("%d-%c\n",i+1,*ptr);
        ptr++ ;
     }
     #endif

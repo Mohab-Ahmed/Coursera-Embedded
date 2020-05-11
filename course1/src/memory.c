@@ -21,6 +21,7 @@
  *
  */
 #include "memory.h"
+#include<stdint.h>
 
 /***********************************************************
  Function Definitions
@@ -48,3 +49,86 @@ void clear_all(char * ptr, unsigned int size){
   set_all(ptr, 0, size);
 }
 
+uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length)
+{
+  //type cast to char cuz it's 1 byte
+  char* csrc=(char*)src;
+  char* cdst=(char*)dst;
+
+  if(dst<=src)
+    {
+      for(size_t i=0;i<length;i++)
+        *(cdst+i)=*(csrc+i);
+    }
+    else
+    {
+      for(size_t i=length;i>0;i--)
+        *(cdst+i-1)=*(csrc+i-1);
+    }
+
+  return((uint8_t*)cdst);
+}
+
+uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length)
+{
+  //type cast to char to copy byte by byte
+  char *csrc=(char*)src;
+  char *cdst=(char*)dst;
+
+  //copying byte by byte
+  for (size_t i = 0; i < length; i++)
+  {
+    *(cdst+i)=*(csrc+i);
+  }
+  return((uint8_t*)cdst);
+}
+
+uint8_t * my_memset(uint8_t * src, size_t length, uint8_t value)
+{
+  //type cast to char to copy byte by byte
+  char *csrc=(char*)src;
+
+  for (size_t i = 0; i < length; i++)
+  {
+    *(csrc+i)=value;
+  }
+  return((uint8_t*)csrc);
+}
+
+uint8_t * my_memzero(uint8_t * src, size_t length)
+{
+  //type cast to char to copy byte by byte
+  char *csrc=(char*)src;
+
+  for (size_t i = 0; i < length; i++)
+  {
+    *(csrc+i)=0;
+  }
+  return((uint8_t*)csrc);
+}
+
+uint8_t * my_reverse(uint8_t * src, size_t length)
+{
+  //type cast to char to copy byte by byte
+  char *csrc=(char*)src;
+
+  char temp[length];
+
+  for(size_t i=0;i<length;i++)
+    *(temp+i)=*(csrc+i);
+
+  //temp+length-1-i to get to the last element of the temp array
+  for(size_t i=0;i<length;i++)
+    *(csrc+i)=*(temp+length-1-i);
+  return((uint8_t*)csrc);
+}
+
+int32_t * reserve_words(size_t length)
+{
+  return(malloc(length*sizeof(char*)));
+}
+
+void free_words(uint32_t * src)
+{
+  free(src);
+}
