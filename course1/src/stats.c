@@ -129,8 +129,8 @@ void sort_array(unsigned char * ptr,unsigned int size)
 
 void print_statistics(unsigned char * ptr,unsigned int size)
 {
-    printf("\nMax = %c\n",find_maximum(ptr,size));
-    printf("Min = %c\n",find_minimum(ptr,size));
-    printf("Mean = %c\n",find_mean(ptr,size));
-    printf("Median = %c\n\n",find_median(ptr,size));
+    PRINTF("\nMax = %c\n",find_maximum(ptr,size));
+    PRINTF("Min = %c\n",find_minimum(ptr,size));
+    PRINTF("Mean = %c\n",find_mean(ptr,size));
+    PRINTF("Median = %c\n\n",find_median(ptr,size));
 }
